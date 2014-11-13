@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\fdisk122\pingpong\Top.ncd
+OUTFILE=C:\Users\fdisk122\pingpong\Top.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=C:\Users\fdisk122\pingpong
+LICENSE=ISE
+USER_INFO=174556800_206273187_206649829_841

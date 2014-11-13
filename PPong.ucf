@@ -1,0 +1,62 @@
+## Clock signal
+NET "clk"	LOC = "V10";
+
+## 7 segment display
+#NET "cathodes<0>"	LOC = "T17";
+#NET "cathodes<1>"	LOC = "T18";
+#NET "cathodes<2>"	LOC = "U17";
+#NET "cathodes<3>"	LOC = "U18";
+#NET "cathodes<4>"	LOC = "M14";
+#NET "cathodes<5>"	LOC = "N14";
+#NET "cathodes<6>"	LOC = "L14";
+#NET "cathodes<7>"	LOC = "M13";
+#
+#NET "anodes<0>"	LOC = "N16";
+#NET "anodes<1>"	LOC = "N15";
+#NET "anodes<2>"	LOC = "P18";
+#NET "anodes<3>"	LOC = "P17";
+
+
+## Leds
+#NET "Led<0>"         LOC = "U16" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L2P_CMPCLK,                     Sch name = LD0
+#NET "Led<1>"         LOC = "V16" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L2N_CMPMOSI,                    Sch name = LD1
+#NET "Led<2>"         LOC = "U15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L5P,                            Sch name = LD2
+#NET "Led<3>"         LOC = "V15" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L5N,                            Sch name = LD3
+#NET "Led<4>"         LOC = "M11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15P,                           Sch name = LD4
+#NET "Led<5>"         LOC = "N11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L15N,                           Sch name = LD5
+#NET "Led<6>"         LOC = "R11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L16P,                           Sch name = LD6
+#NET "Led<7>"         LOC = "T11" | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L16N_VREF,                      Sch name = LD7
+
+
+## Switches
+NET "reset"		LOC = "T10";
+#NET "color<1>"    LOC = "T9";  
+#NET "color<2>"    LOC = "V9";  
+#NET "sw<3>"          LOC = "M8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40P,                           Sch name = SW3
+#NET "sw<4>"          LOC = "N8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L40N,                           Sch name = SW4
+#NET "sw<5>"          LOC = "U8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L41P,                           Sch name = SW5
+##NET "sw<6>"          LOC = "V8"  | IOSTANDARD = "LVCMOS33";   #Bank = 2, Pin name = IO_L41N_VREF,                      Sch name = SW6
+#NET "sys_pause"          LOC = "T5"  | IOSTANDARD = "LVCMOS33";   #Bank = MISC, Pin name = IO_L48N_RDWR_B_VREF_2,          Sch name = SW7
+
+
+## Buttons
+#NET "player1_controls<0>"	LOC = "C4";
+NET "Padle<1>"	LOC = "A8";
+#
+NET "Padle<0>" 	LOC = "C9";
+#NET "player2_controls<1>"	LOC = "D9";
+#
+#NET "continue" LOC = "B8";
+
+## VGA Connector
+NET "rgb<2>"    LOC = "U7";  
+NET "rgb<2>"    LOC = "V7";  
+NET "rgb<2>"    LOC = "N7";  
+NET "rgb<1>"    LOC = "P8";  
+NET "rgb<1>"    LOC = "T6";  
+NET "rgb<1>"    LOC = "V6";
+NET "rgb<0>"    LOC = "R7";  
+NET "rgb<0>"    LOC = "T7";  
+
+NET "hsync"		LOC = "N6";  
+NET "vsync"    LOC = "P7"; 

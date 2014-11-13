@@ -1,0 +1,16 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Wed Nov 12 18:10:33 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "rgb<0>" LOCATE = SITE "T7" LEVEL 1;
+COMP "rgb<1>" LOCATE = SITE "V6" LEVEL 1;
+COMP "rgb<2>" LOCATE = SITE "N7" LEVEL 1;
+COMP "Hsync" LOCATE = SITE "N6" LEVEL 1;
+COMP "Padle<0>" LOCATE = SITE "C9" LEVEL 1;
+COMP "Padle<1>" LOCATE = SITE "A8" LEVEL 1;
+COMP "Vsync" LOCATE = SITE "P7" LEVEL 1;
+COMP "Reset" LOCATE = SITE "T10" LEVEL 1;
+COMP "Clk" LOCATE = SITE "V10" LEVEL 1;
+SCHEMATIC END;
+

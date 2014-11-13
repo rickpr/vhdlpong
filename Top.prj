@@ -1,0 +1,5 @@
+vhdl work "Walls.vhd"
+vhdl work "VGA_sync.vhd"
+vhdl work "paddle.vhd"
+vhdl work "ball.vhd"
+vhdl work "Top.vhd"
