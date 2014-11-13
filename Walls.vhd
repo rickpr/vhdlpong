@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -37,10 +37,25 @@ entity Walls is
 end Walls;
 
 architecture Behavioral of Walls is
-Signal Wall_L_On,Wall_B_On, Wall_T_On, Wall_I_on, Wall: std_logic:='0';
+Signal Wall_L_On,Wall_B_On, Wall_T_On, Wall_I_on, Wall, sq_d_on: std_logic:='0';
 signal Wall_T_RGB, Wall_L_RGB, Wall_B_RGB : std_logic_vector ( 2 downto 0):="000";
 signal X, Y :  std_logic_vector(9 downto 0):="0000000000";
-
+signal rom_addr, rom_col: unsigned(2 downto 0);
+	signal rom_data: std_logic_vector(9 downto 0);
+	signal rom_bit: std_logic;
+	type rom_type is array(0 to 9) of std_logic_vector(0 to 9);
+	constant D_ROM: rom_type:= (
+    "1111111000",
+    "1100001100",
+    "1100001110",
+    "1100001111",
+    "1100001111",
+    "1100001111",
+    "1100001110",
+    "1100001100",
+    "1100001000",
+    "1111111000"
+	 );
 begin
 X <= Pixel_x;
 Y <= Pixel_Y;
@@ -52,7 +67,27 @@ Wall_on <= Wall;
 ----- Top Wall ---- 
 Wall_T_On <= '1' when ((Y < "0000110010") and (video_on='1')) else '0';
 ---My splat on the screen---
-Wall_I_on <= '1' when ((X > "0001100100") and (Y > "0001100100") and (X < "0011001000") and (Y < "0011001000") and (video_on='1')) else '0';
+--Wall_I_on <= '1' when ((X > "0001100100") and (Y > "0001100100") and (X < "0011001000") and (Y < "0011001000") and (video_on='1')) else '0';
+
+	 sq_d_on <= '1' when ((X > "0001100100") and (Y > "0001100100")and (X < "0001110011") and (Y < "0001110011")
+								   and (video_on='1')) else 
+					  '0';
+  -- map scan coord to ROM addr/col -- use low order three
+	-- bits of pixel and ball positions.
+	-- ROM row
+	--rom_addr <= pix_y(2 downto 0) - ball_y_t(2 downto 0);
+	-- ROM column
+	--rom_col <= pix_x(2 downto 0) - ball_x_l(2 downto 0);
+	-- Get row data
+	rom_data <= D_ROM(to_integer(rom_addr));
+	-- Get column bit
+	rom_bit <= rom_data(to_integer(rom_col));
+	
+	-- Turn ball on only if within square and ROM bit is 1.
+	Wall_I_On <= '1' when (sq_d_on = '1') else--and (rom_bit = '1') else 
+					  '0';
+	--ball_on <= rd_ball_on;
+					 
 ----- Bottom Wall ---- 
 Wall_B_On <= '1' when ((Y > "0110101110") and (Y<="1000001011") and (video_on='1')) else '0';
 ----- Left Wall ---- 

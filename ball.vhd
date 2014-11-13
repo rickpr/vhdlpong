@@ -50,12 +50,12 @@ architecture ball_arch of ball is
 	type rom_type is array(0 to 7) of std_logic_vector(0 to 7);
 	constant BALL_ROM: rom_type:= (
 		"00111100",
-		"01111110",
+		"01011010",
 		"11111111",
 		"11111111",
-		"11111111",
-		"11111111",
-		"01111110",
+		"10111101",
+		"11011101",
+		"01100010",
 		"00111100"
 	);
 	
@@ -70,10 +70,8 @@ architecture ball_arch of ball is
 
 
 	signal scored : std_logic;
---Signal Wall_L_On : std_logic:='0';
 begin
 
---Wall_L_On <= '1' when ((pix_x < 21)  and  (rd_ball_on = '1')) else '0';
 
 
 	process (clk, reset)
