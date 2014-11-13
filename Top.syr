@@ -4,13 +4,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.12 secs
+Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: Top.prj
 
@@ -134,7 +134,7 @@ Elaborating entity <paddle> (architecture <paddle_arch>) from library <work>.
 
 Elaborating entity <Walls> (architecture <Behavioral>) from library <work>.
 WARNING:HDLCompiler:871 - "C:\Users\fdisk122\pingpong\Walls.vhd" Line 40: Using initial value '0' for wall_l_on since it is never assigned
-WARNING:HDLCompiler:1127 - "C:\Users\fdisk122\pingpong\Walls.vhd" Line 84: Assignment to rom_bit ignored, since the identifier is never used
+WARNING:HDLCompiler:634 - "C:\Users\fdisk122\pingpong\Walls.vhd" Line 43: Net <pix_x[3]> does not have a driver.
 
 Elaborating entity <ball> (architecture <ball_arch>) from library <work>.
 WARNING:HDLCompiler:92 - "C:\Users\fdisk122\pingpong\Top.vhd" Line 111: pedal_on should be on the sensitivity list of the process
@@ -200,15 +200,13 @@ Unit <paddle> synthesized.
 
 Synthesizing Unit <Walls>.
     Related source file is "c:/users/fdisk122/pingpong/walls.vhd".
-    Found 10-bit comparator greater for signal <Y[9]_GND_22_o_LessThan_4_o> created at line 68
-    Found 10-bit comparator greater for signal <GND_22_o_X[9]_LessThan_5_o> created at line 72
-    Found 10-bit comparator greater for signal <GND_22_o_Y[9]_LessThan_6_o> created at line 72
-    Found 10-bit comparator greater for signal <X[9]_GND_22_o_LessThan_7_o> created at line 72
-    Found 10-bit comparator greater for signal <Y[9]_GND_22_o_LessThan_8_o> created at line 72
-    Found 10-bit comparator greater for signal <GND_22_o_Y[9]_LessThan_11_o> created at line 92
-    Found 10-bit comparator lessequal for signal <n0019> created at line 92
+WARNING:Xst:653 - Signal <pix_x<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+WARNING:Xst:653 - Signal <pix_y<3:0>> is used but never assigned. This sourceless signal will be automatically connected to value GND.
+    Found 10-bit comparator greater for signal <Y[9]_GND_22_o_LessThan_4_o> created at line 76
+    Found 10-bit comparator greater for signal <GND_22_o_Y[9]_LessThan_13_o> created at line 100
+    Found 10-bit comparator lessequal for signal <n0023> created at line 100
     Summary:
-	inferred   7 Comparator(s).
+	inferred   3 Comparator(s).
 Unit <Walls> synthesized.
 
 Synthesizing Unit <ball>.
@@ -230,7 +228,7 @@ Synthesizing Unit <ball>.
     Found 10-bit comparator lessequal for signal <n0022> created at line 110
     Found 10-bit comparator greater for signal <ball_y_t[9]_GND_23_o_LessThan_29_o> created at line 149
     Found 10-bit comparator greater for signal <GND_23_o_ball_y_b[9]_LessThan_30_o> created at line 152
-    Found 10-bit comparator greater for signal <PWR_15_o_ball_x_r[9]_LessThan_31_o> created at line 161
+    Found 10-bit comparator greater for signal <PWR_16_o_ball_x_r[9]_LessThan_31_o> created at line 161
     Summary:
 	inferred   6 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
@@ -253,8 +251,8 @@ Macro Statistics
  10-bit register                                       : 8
  2-bit register                                        : 1
  3-bit register                                        : 1
-# Comparators                                          : 32
- 10-bit comparator greater                             : 15
+# Comparators                                          : 28
+ 10-bit comparator greater                             : 11
  10-bit comparator lessequal                           : 17
 # Multiplexers                                         : 11
  1-bit 2-to-1 multiplexer                              : 4
@@ -303,8 +301,8 @@ Macro Statistics
  10-bit up loadable accumulator                        : 1
 # Registers                                            : 49
  Flip-Flops                                            : 49
-# Comparators                                          : 32
- 10-bit comparator greater                             : 15
+# Comparators                                          : 28
+ 10-bit comparator greater                             : 11
  10-bit comparator lessequal                           : 17
 # Multiplexers                                         : 8
  1-bit 2-to-1 multiplexer                              : 4
@@ -325,10 +323,6 @@ INFO:Xst:2261 - The FF/Latch <x_delta_reg_2> in Unit <ball> is equivalent to the
 WARNING:Xst:1710 - FF/Latch <ball_y_reg_0> (without init value) has a constant value of 0 in block <ball>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <Top> ...
-WARNING:Xst:1293 - FF/Latch <Pedal/bar_y_reg_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Pedal/bar_y_reg_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Peddle/bar_y_reg_1> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <Peddle/bar_y_reg_0> has a constant value of 0 in block <Top>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <vga_sync> ...
 
@@ -351,7 +345,6 @@ INFO:Xst:2261 - The FF/Latch <Peddle/bar_y_reg_9> in Unit <Top> is equivalent to
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block Top, actual ratio is 3.
-FlipFlop VGA/v_cnt_reg_1 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -359,8 +352,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 59
- Flip-Flops                                            : 59
+# Registers                                            : 58
+ Flip-Flops                                            : 58
 
 =========================================================================
 
@@ -383,23 +376,23 @@ Top Level Output File Name         : Top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 384
+# BELS                             : 380
 #      GND                         : 1
 #      INV                         : 5
-#      LUT2                        : 31
-#      LUT3                        : 38
-#      LUT4                        : 88
-#      LUT5                        : 20
-#      LUT6                        : 85
-#      MUXCY                       : 77
-#      MUXF7                       : 1
+#      LUT2                        : 35
+#      LUT3                        : 32
+#      LUT4                        : 90
+#      LUT5                        : 19
+#      LUT6                        : 81
+#      MUXCY                       : 79
 #      VCC                         : 1
 #      XORCY                       : 37
-# FlipFlops/Latches                : 59
-#      FD                          : 3
+# FlipFlops/Latches                : 58
+#      FD                          : 2
 #      FDC                         : 9
-#      FDCE                        : 34
+#      FDCE                        : 33
 #      FDPE                        : 13
+#      FDRE                        : 1
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 9
@@ -413,16 +406,16 @@ Selected Device : 6slx16csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              59  out of  18224     0%  
- Number of Slice LUTs:                  267  out of   9112     2%  
-    Number used as Logic:               267  out of   9112     2%  
+ Number of Slice Registers:              58  out of  18224     0%  
+ Number of Slice LUTs:                  262  out of   9112     2%  
+    Number used as Logic:               262  out of   9112     2%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    301
-   Number with an unused Flip Flop:     242  out of    301    80%  
-   Number with an unused LUT:            34  out of    301    11%  
-   Number of fully used LUT-FF pairs:    25  out of    301     8%  
-   Number of unique control sets:         8
+ Number of LUT Flip Flop pairs used:    282
+   Number with an unused Flip Flop:     224  out of    282    79%  
+   Number with an unused LUT:            20  out of    282     7%  
+   Number of fully used LUT-FF pairs:    38  out of    282    13%  
+   Number of unique control sets:         9
 
 IO Utilization: 
  Number of IOs:                          10
@@ -452,7 +445,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-Clk                                | BUFGP                  | 59    |
+Clk                                | BUFGP                  | 58    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -463,8 +456,8 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.864ns (Maximum Frequency: 145.679MHz)
-   Minimum input arrival time before clock: 6.776ns
+   Minimum period: 7.743ns (Maximum Frequency: 129.151MHz)
+   Minimum input arrival time before clock: 5.739ns
    Maximum output required time after clock: 3.668ns
    Maximum combinational path delay: No path found
 
@@ -474,36 +467,37 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Clk'
-  Clock period: 6.864ns (frequency: 145.679MHz)
-  Total number of paths / destination ports: 62924 / 106
+  Clock period: 7.743ns (frequency: 129.151MHz)
+  Total number of paths / destination ports: 63308 / 106
 -------------------------------------------------------------------------
-Delay:               6.864ns (Levels of Logic = 6)
-  Source:            Peddle/bar_y_reg_4 (FF)
+Delay:               7.743ns (Levels of Logic = 7)
+  Source:            Back_ball/ball_y_reg_5 (FF)
   Destination:       Back_ball/ball_x_reg_9 (FF)
   Source Clock:      Clk rising
   Destination Clock: Clk rising
 
-  Data Path: Peddle/bar_y_reg_4 to Back_ball/ball_x_reg_9
+  Data Path: Back_ball/ball_y_reg_5 to Back_ball/ball_x_reg_9
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDPE:C->Q            16   0.447   1.233  Peddle/bar_y_reg_4 (Peddle/bar_y_reg_4)
-     LUT3:I0->O            2   0.205   0.617  Pedal/Madd_bar_y_b_xor<5>111 (Pedal/Madd_bar_y_b_xor<5>11)
-     LUT5:I4->O            4   0.205   0.912  Pedal/Madd_bar_y_b_xor<8>11 (Pedal/bar_y_b<8>)
-     LUT4:I1->O            1   0.205   0.000  Pedal/Mcompar_pix_y[9]_bar_y_b[9]_LessThan_14_o_lut<4> (Pedal/Mcompar_pix_y[9]_bar_y_b[9]_LessThan_14_o_lut<4>)
-     MUXCY:S->O            2   0.172   0.000  Pedal/Mcompar_pix_y[9]_bar_y_b[9]_LessThan_14_o_cy<4> (Pedal/pix_y[9]_bar_y_b[9]_LessThan_14_o)
-     MUXCY:CI->O          19   0.213   1.300  Pedal/paddle_on1_cy (pedal_on)
-     LUT6:I3->O            9   0.205   0.829  Back_ball/_n0139_inv1 (Back_ball/_n0139_inv)
+     FDPE:C->Q             9   0.447   1.174  Back_ball/ball_y_reg_5 (Back_ball/ball_y_reg_5)
+     LUT6:I1->O           13   0.203   0.933  Back_ball/Madd_ball_y_b_cy<6>11 (Back_ball/Madd_ball_y_b_cy<6>)
+     LUT2:I1->O            2   0.205   0.864  Back_ball/Madd_ball_y_b_xor<7>11 (Back_ball/ball_y_b<7>)
+     LUT4:I0->O            0   0.203   0.000  Back_ball/Mcompar_pix_y[9]_ball_y_b[9]_LessThan_18_o_lutdi3 (Back_ball/Mcompar_pix_y[9]_ball_y_b[9]_LessThan_18_o_lutdi3)
+     MUXCY:DI->O           1   0.145   0.000  Back_ball/Mcompar_pix_y[9]_ball_y_b[9]_LessThan_18_o_cy<3> (Back_ball/Mcompar_pix_y[9]_ball_y_b[9]_LessThan_18_o_cy<3>)
+     MUXCY:CI->O          18   0.213   1.050  Back_ball/Mcompar_pix_y[9]_ball_y_b[9]_LessThan_18_o_cy<4> (Back_ball/pix_y[9]_ball_y_b[9]_LessThan_18_o)
+     LUT5:I4->O            6   0.205   0.745  Back_ball/rd_ball_on_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy_cy (Ball_on)
+     LUT6:I5->O            9   0.205   0.829  Back_ball/_n0139_inv1 (Back_ball/_n0139_inv)
      FDPE:CE                   0.322          Back_ball/ball_x_reg_3
     ----------------------------------------
-    Total                      6.864ns (1.974ns logic, 4.890ns route)
-                                       (28.8% logic, 71.2% route)
+    Total                      7.743ns (2.148ns logic, 5.595ns route)
+                                       (27.7% logic, 72.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
-  Total number of paths / destination ports: 116 / 88
+  Total number of paths / destination ports: 106 / 87
 -------------------------------------------------------------------------
-Offset:              6.776ns (Levels of Logic = 5)
+Offset:              5.739ns (Levels of Logic = 4)
   Source:            pause (PAD)
   Destination:       Back_ball/ball_x_reg_9 (FF)
   Destination Clock: Clk rising
@@ -512,31 +506,30 @@ Offset:              6.776ns (Levels of Logic = 5)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   1.222   0.981  pause_IBUF (pause_IBUF)
-     LUT6:I0->O            1   0.203   0.580  Back_ball/refr_tick1 (Back_ball/refr_tick1)
-     LUT6:I5->O           10   0.205   1.104  Back_ball/refr_tick4 (Back_ball/refr_tick)
-     LUT6:I2->O            1   0.203   0.924  Back_ball/rd_ball_on_SW32 (N91)
-     LUT6:I1->O            9   0.203   0.829  Back_ball/_n0139_inv1 (Back_ball/_n0139_inv)
+     IBUF:I->O             1   1.222   0.580  pause_IBUF (pause_IBUF)
+     LUT6:I5->O            2   0.205   0.981  Pedal/_n0076_inv21 (Back_ball/refr_tick1)
+     LUT6:I0->O            9   0.203   1.194  Back_ball/refr_tick4 (Back_ball/refr_tick)
+     LUT6:I0->O            9   0.203   0.829  Back_ball/_n0139_inv1 (Back_ball/_n0139_inv)
      FDPE:CE                   0.322          Back_ball/ball_x_reg_3
     ----------------------------------------
-    Total                      6.776ns (2.358ns logic, 4.418ns route)
-                                       (34.8% logic, 65.2% route)
+    Total                      5.739ns (2.155ns logic, 3.584ns route)
+                                       (37.6% logic, 62.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
   Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
 Offset:              3.668ns (Levels of Logic = 1)
-  Source:            rgb_reg_1 (FF)
-  Destination:       rgb<1> (PAD)
+  Source:            rgb_reg_2 (FF)
+  Destination:       rgb<2> (PAD)
   Source Clock:      Clk rising
 
-  Data Path: rgb_reg_1 to rgb<1>
+  Data Path: rgb_reg_2 to rgb<2>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q               3   0.447   0.650  rgb_reg_1 (rgb_reg_1)
-     OBUF:I->O                 2.571          rgb_1_OBUF (rgb<1>)
+     FD:C->Q               3   0.447   0.650  rgb_reg_2 (rgb_reg_2)
+     OBUF:I->O                 2.571          rgb_2_OBUF (rgb<2>)
     ----------------------------------------
     Total                      3.668ns (3.018ns logic, 0.650ns route)
                                        (82.3% logic, 17.7% route)
@@ -551,20 +544,20 @@ Clock to Setup on destination clock Clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-Clk            |    6.864|         |         |         |
+Clk            |    7.743|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 9.08 secs
+Total CPU time to Xst completion: 9.50 secs
  
 --> 
 
-Total memory usage is 258016 kilobytes
+Total memory usage is 257568 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   22 (   0 filtered)
+Number of warnings :   20 (   0 filtered)
 Number of infos    :   13 (   0 filtered)
 
