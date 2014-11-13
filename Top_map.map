@@ -10,7 +10,7 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Nov 12 18:10:25 2014
+Mapped Date    : Wed Nov 12 18:20:15 2014
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
@@ -76,7 +76,7 @@ Phase 10.5  Local Placement Optimization
 Phase 10.5  Local Placement Optimization (Checksum:9223d70c) REAL time: 7 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:79bd994) REAL time: 7 secs 
+Phase 11.18  Placement Optimization (Checksum:79bd994) REAL time: 8 secs 
 
 Phase 12.5  Local Placement Optimization
 Phase 12.5  Local Placement Optimization (Checksum:79bd994) REAL time: 8 secs 
@@ -161,7 +161,7 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                5.00
 
-Peak Memory Usage:  363 MB
+Peak Memory Usage:  362 MB
 Total REAL time to MAP completion:  8 secs 
 Total CPU time to MAP completion:   8 secs 
 

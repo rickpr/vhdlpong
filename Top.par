@@ -1,7 +1,7 @@
 Release 13.4 par O.87xd (nt64)
 Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 
-ECE216-2020::  Wed Nov 12 18:10:36 2014
+ECE216-2020::  Wed Nov 12 18:20:27 2014
 
 par -w -intstyle ise -ol high -mt off Top_map.ncd Top.ncd Top.pcf 
 
@@ -113,7 +113,7 @@ Starting Router
 
 Phase  1  : 1113 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 1017 unrouted;      REAL time: 4 secs 
+Phase  2  : 1017 unrouted;      REAL time: 5 secs 
 
 Phase  3  : 386 unrouted;      REAL time: 5 secs 
 

@@ -71,7 +71,7 @@ component ball is
 port(
 		clk, reset : in std_logic;
 		pause : in std_logic;
-		wall_l_on, paddle2_on : in std_logic;
+		pedal_on, paddle2_on : in std_logic;
 		pixel_x, pixel_y : in std_logic_vector(9 downto 0);
 		ball_on : out std_logic;
 		ball_rgb : out std_logic_vector(2 downto 0)
