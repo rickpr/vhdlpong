@@ -122,11 +122,11 @@ signal video, pixel_tick, Paddle_on, pedal_on, Wall_on, Ball_on, Letter_on, Koop
 signal btn : std_logic_vector(1 downto 0);
 signal LeftPaddleDirection : integer;
 signal RightPaddleDirection : integer;
-btn <= std_logic_vector(to_unsigned(LeftPaddleDirection,2));
+
 -------------------------------------------------------------
 -------------------------------------------------------------
 begin
-
+btn <= std_logic_vector(to_unsigned(LeftPaddleDirection,2));
 --pause <= state_pause or sys_pause;
 
 VGA: vga_sync port map (Clk, Reset, Hsync, Vsync,Video, pixel_tick, X, Y);
