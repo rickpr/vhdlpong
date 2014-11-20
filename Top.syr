@@ -3,13 +3,13 @@ Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.14 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.14 secs
  
 --> Reading design: Top.prj
@@ -261,14 +261,15 @@ Synthesizing Unit <ball>.
     Found 10-bit comparator lessequal for signal <n0018> created at line 110
     Found 10-bit comparator lessequal for signal <n0020> created at line 111
     Found 10-bit comparator lessequal for signal <n0022> created at line 111
-    Found 10-bit comparator greater for signal <Wall_Top> created at line 151
-    Found 10-bit comparator greater for signal <GND_23_o_ball_y_b[9]_LessThan_30_o> created at line 155
-    Found 10-bit comparator greater for signal <PWR_15_o_ball_x_r[9]_LessThan_31_o> created at line 165
+    Found 10-bit comparator greater for signal <ball_y_t[9]_GND_23_o_LessThan_29_o> created at line 151
+    Found 10-bit comparator greater for signal <GND_23_o_ball_y_b[9]_LessThan_30_o> created at line 154
+    Found 10-bit comparator greater for signal <PWR_15_o_ball_x_r[9]_LessThan_31_o> created at line 162
+    Found 10-bit comparator greater for signal <ball_x_l[9]_GND_23_o_LessThan_32_o> created at line 165
     Summary:
 	inferred   6 Adder/Subtractor(s).
 	inferred  40 D-type flip-flop(s).
-	inferred   7 Comparator(s).
-	inferred  11 Multiplexer(s).
+	inferred   8 Comparator(s).
+	inferred  20 Multiplexer(s).
 Unit <ball> synthesized.
 
 Synthesizing Unit <Letter>.
@@ -449,11 +450,11 @@ Macro Statistics
  24-bit register                                       : 4
  3-bit register                                        : 1
  7-bit register                                        : 4
-# Comparators                                          : 38
- 10-bit comparator greater                             : 17
+# Comparators                                          : 39
+ 10-bit comparator greater                             : 18
  10-bit comparator lessequal                           : 21
-# Multiplexers                                         : 116
- 1-bit 2-to-1 multiplexer                              : 98
+# Multiplexers                                         : 125
+ 1-bit 2-to-1 multiplexer                              : 107
  10-bit 2-to-1 multiplexer                             : 3
  3-bit 2-to-1 multiplexer                              : 5
  4-bit 2-to-1 multiplexer                              : 10
@@ -475,8 +476,8 @@ WARNING:Xst:1426 - The value init of the FF/Latch y_delta_reg_1 hinder the const
    You should achieve better results by setting this init to 1.
 WARNING:Xst:1426 - The value init of the FF/Latch x_delta_reg_1 hinder the constant cleaning in the block Back_ball.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:1293 - FF/Latch <y_delta_reg_0> has a constant value of 0 in block <Back_ball>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <x_delta_reg_0> has a constant value of 0 in block <Back_ball>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <y_delta_reg_0> has a constant value of 0 in block <Back_ball>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:2677 - Node <V_y_Reg_6> of sequential type is unconnected in block <Letter_V>.
 WARNING:Xst:2677 - Node <V_y_Reg_6> of sequential type is unconnected in block <Koopa_V>.
 
@@ -1119,11 +1120,11 @@ Macro Statistics
  10-bit up loadable accumulator                        : 1
 # Registers                                            : 91
  Flip-Flops                                            : 91
-# Comparators                                          : 38
- 10-bit comparator greater                             : 17
+# Comparators                                          : 39
+ 10-bit comparator greater                             : 18
  10-bit comparator lessequal                           : 21
-# Multiplexers                                         : 31
- 1-bit 2-to-1 multiplexer                              : 16
+# Multiplexers                                         : 40
+ 1-bit 2-to-1 multiplexer                              : 25
  3-bit 2-to-1 multiplexer                              : 5
  4-bit 2-to-1 multiplexer                              : 10
 # FSMs                                                 : 4
@@ -1190,12 +1191,12 @@ WARNING:Xst:3002 - This design contains one or more registers/latches that are d
     ball_x_reg_8 in unit <ball>
     ball_x_reg_5 in unit <ball>
     ball_x_reg_4 in unit <ball>
-    ball_x_reg_3 in unit <ball>
     ball_x_reg_1 in unit <ball>
-    ball_y_reg_7 in unit <ball>
+    ball_x_reg_3 in unit <ball>
     ball_y_reg_6 in unit <ball>
-    ball_y_reg_4 in unit <ball>
     ball_y_reg_5 in unit <ball>
+    ball_y_reg_7 in unit <ball>
+    ball_y_reg_4 in unit <ball>
     y_delta_reg_1 in unit <ball>
     x_delta_reg_1 in unit <ball>
 
@@ -1237,293 +1238,5 @@ WARNING:Xst:1426 - The value init of the FF/Latch Back_ball/ball_x_reg_0_LD hind
    You should achieve better results by setting this init to 1.
 WARNING:Xst:1426 - The value init of the FF/Latch Back_ball/y_delta_reg_1_C_1 hinder the constant cleaning in the block Top.
    You should achieve better results by setting this init to 1.
-FlipFlop Koopa_V/V_X_Reg_0 has been replicated 1 time(s)
-FlipFlop Koopa_V/V_X_Reg_1 has been replicated 1 time(s)
-FlipFlop Koopa_V/V_X_Reg_2 has been replicated 1 time(s)
-FlipFlop Koopa_V/V_X_Reg_3 has been replicated 2 time(s)
-FlipFlop Koopa_V/V_X_Reg_4 has been replicated 1 time(s)
-FlipFlop Koopa_V/V_X_Reg_5 has been replicated 1 time(s)
-FlipFlop Koopa_V/V_X_Reg_6 has been replicated 1 time(s)
-
-Final Macro Processing ...
-
-=========================================================================
-Final Register Report
-
-Macro Statistics
-# Registers                                            : 244
- Flip-Flops                                            : 244
-
-=========================================================================
-
-=========================================================================
-*                           Partition Report                            *
-=========================================================================
-
-Partition Implementation Status
--------------------------------
-
-  No Partitions were found in this design.
-
--------------------------------
-
-=========================================================================
-*                            Design Summary                             *
-=========================================================================
-
-Top Level Output File Name         : Top.ngc
-
-Primitive and Black Box Usage:
-------------------------------
-# BELS                             : 1072
-#      GND                         : 1
-#      INV                         : 16
-#      LUT1                        : 110
-#      LUT2                        : 43
-#      LUT3                        : 59
-#      LUT4                        : 120
-#      LUT5                        : 102
-#      LUT6                        : 268
-#      MUXCY                       : 189
-#      MUXF7                       : 17
-#      VCC                         : 1
-#      XORCY                       : 146
-# FlipFlops/Latches                : 245
-#      FD                          : 9
-#      FDC                         : 133
-#      FDCE                        : 67
-#      FDE                         : 16
-#      FDPE                        : 15
-#      FDR                         : 4
-#      LD                          : 1
-# Clock Buffers                    : 2
-#      BUFG                        : 1
-#      BUFGP                       : 1
-# IO Buffers                       : 21
-#      IBUF                        : 4
-#      OBUF                        : 17
-
-Device utilization summary:
----------------------------
-
-Selected Device : 6slx16csg324-3 
-
-
-Slice Logic Utilization: 
- Number of Slice Registers:             245  out of  18224     1%  
- Number of Slice LUTs:                  718  out of   9112     7%  
-    Number used as Logic:               718  out of   9112     7%  
-
-Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    774
-   Number with an unused Flip Flop:     529  out of    774    68%  
-   Number with an unused LUT:            56  out of    774     7%  
-   Number of fully used LUT-FF pairs:   189  out of    774    24%  
-   Number of unique control sets:        31
-
-IO Utilization: 
- Number of IOs:                          22
- Number of bonded IOBs:                  22  out of    232     9%  
-
-Specific Feature Utilization:
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
-
----------------------------
-Partition Resource Summary:
----------------------------
-
-  No Partitions were found in this design.
-
----------------------------
-
-
-=========================================================================
-Timing Report
-
-NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
-      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
-      GENERATED AFTER PLACE-and-ROUTE.
-
-Clock Information:
-------------------
------------------------------------+---------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)     | Load  |
------------------------------------+---------------------------+-------+
-Clk                                | BUFGP                     | 242   |
-Score/U0/Count_18                  | NONE(Score/U0/New_Count_1)| 2     |
-Reset                              | IBUF+BUFG                 | 1     |
------------------------------------+---------------------------+-------+
-INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
-
-Asynchronous Control Signals Information:
-----------------------------------------
-No asynchronous control signals found in this design
-
-Timing Summary:
----------------
-Speed Grade: -3
-
-   Minimum period: 9.090ns (Maximum Frequency: 110.017MHz)
-   Minimum input arrival time before clock: 5.863ns
-   Maximum output required time after clock: 6.884ns
-   Maximum combinational path delay: No path found
-
-Timing Details:
----------------
-All values displayed in nanoseconds (ns)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'Clk'
-  Clock period: 9.090ns (frequency: 110.017MHz)
-  Total number of paths / destination ports: 173425 / 473
--------------------------------------------------------------------------
-Delay:               9.090ns (Levels of Logic = 9)
-  Source:            Koopa_V/V_y_Reg_1 (FF)
-  Destination:       rgb_reg_0 (FF)
-  Source Clock:      Clk rising
-  Destination Clock: Clk rising
-
-  Data Path: Koopa_V/V_y_Reg_1 to rgb_reg_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDCE:C->Q            48   0.447   1.864  Koopa_V/V_y_Reg_1 (Koopa_V/V_y_Reg_1)
-     LUT6:I1->O            1   0.203   0.580  Koopa_V/Mram_rom_data<91>11 (Koopa_V/rom_data<91>)
-     LUT6:I5->O            1   0.205   0.684  Koopa_V/Mmux_L_on16 (Koopa_V/Mmux_L_on14)
-     LUT6:I4->O            1   0.203   0.000  Koopa_V/Mmux_L_on144_SW0_G (N175)
-     MUXF7:I1->O           2   0.140   0.617  Koopa_V/Mmux_L_on144_SW0 (N41)
-     LUT6:I5->O            4   0.205   0.912  Koopa_V/Mmux_L_on143_SW0 (N71)
-     LUT6:I3->O            6   0.205   0.849  Koopa_V/Mmux_L_on141_SW0 (N100)
-     LUT6:I4->O            1   0.203   0.684  Koopa_V/Mmux_L_on145_SW2 (N165)
-     LUT6:I4->O            1   0.203   0.580  Mmux_GND_4_o_Paddle_RGB[2]_mux_5_OUT21 (GND_4_o_Paddle_RGB[2]_mux_5_OUT<1>)
-     LUT6:I5->O            1   0.205   0.000  rgb_reg_1_rstpot (rgb_reg_1_rstpot)
-     FD:D                      0.102          rgb_reg_1
-    ----------------------------------------
-    Total                      9.090ns (2.321ns logic, 6.769ns route)
-                                       (25.5% logic, 74.5% route)
-
-=========================================================================
-Timing constraint: Default period analysis for Clock 'Score/U0/Count_18'
-  Clock period: 2.190ns (frequency: 456.663MHz)
-  Total number of paths / destination ports: 3 / 2
--------------------------------------------------------------------------
-Delay:               2.190ns (Levels of Logic = 1)
-  Source:            Score/U0/New_Count_0 (FF)
-  Destination:       Score/U0/New_Count_0 (FF)
-  Source Clock:      Score/U0/Count_18 rising
-  Destination Clock: Score/U0/Count_18 rising
-
-  Data Path: Score/U0/New_Count_0 to Score/U0/New_Count_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              10   0.447   0.856  Score/U0/New_Count_0 (Score/U0/New_Count_0)
-     INV:I->O              1   0.206   0.579  Score/U0/Mcount_New_Count_xor<0>11_INV_0 (Score/Result<0>1)
-     FD:D                      0.102          Score/U0/New_Count_0
-    ----------------------------------------
-    Total                      2.190ns (0.755ns logic, 1.435ns route)
-                                       (34.5% logic, 65.5% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk'
-  Total number of paths / destination ports: 151 / 128
--------------------------------------------------------------------------
-Offset:              5.863ns (Levels of Logic = 4)
-  Source:            pause (PAD)
-  Destination:       Back_ball/ball_x_reg_9 (FF)
-  Destination Clock: Clk rising
-
-  Data Path: pause to Back_ball/ball_x_reg_9
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O             1   1.222   0.580  pause_IBUF (pause_IBUF)
-     LUT6:I5->O            2   0.205   0.845  Pedal/_n0076_inv21 (Back_ball/_n0140_inv1)
-     LUT6:I3->O           13   0.205   1.277  Back_ball/_n0140_inv14 (Back_ball/refr_tick)
-     LUT5:I0->O           16   0.203   1.004  Back_ball/_n0140_inv2 (Back_ball/_n0140_inv)
-     FDCE:CE                   0.322          Back_ball/ball_x_reg_2
-    ----------------------------------------
-    Total                      5.863ns (2.157ns logic, 3.706ns route)
-                                       (36.8% logic, 63.2% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'Score/U0/Count_18'
-  Total number of paths / destination ports: 78 / 11
--------------------------------------------------------------------------
-Offset:              6.411ns (Levels of Logic = 4)
-  Source:            Score/U0/New_Count_1 (FF)
-  Destination:       Seg<2> (PAD)
-  Source Clock:      Score/U0/Count_18 rising
-
-  Data Path: Score/U0/New_Count_1 to Seg<2>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FD:C->Q              11   0.447   1.247  Score/U0/New_Count_1 (Score/U0/New_Count_1)
-     LUT6:I0->O            1   0.203   0.000  Score/Mmux_Decode_in45_G (N266)
-     MUXF7:I1->O           7   0.140   1.021  Score/Mmux_Decode_in45 (Score/Decode_in<3>)
-     LUT4:I0->O            1   0.203   0.579  Score/U1/Mram_Seg21 (Seg_2_OBUF)
-     OBUF:I->O                 2.571          Seg_2_OBUF (Seg<2>)
-    ----------------------------------------
-    Total                      6.411ns (3.564ns logic, 2.847ns route)
-                                       (55.6% logic, 44.4% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk'
-  Total number of paths / destination ports: 201 / 12
--------------------------------------------------------------------------
-Offset:              6.884ns (Levels of Logic = 5)
-  Source:            Score/U1_Player2/PS_FSM_FFd1 (FF)
-  Destination:       Seg<2> (PAD)
-  Source Clock:      Clk rising
-
-  Data Path: Score/U1_Player2/PS_FSM_FFd1 to Seg<2>
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     FDC:C->Q              5   0.447   0.943  Score/U1_Player2/PS_FSM_FFd1 (Score/U1_Player2/PS_FSM_FFd1)
-     LUT3:I0->O            1   0.205   0.580  Score/Mmux_Decode_in43 (Score/Mmux_Decode_in42)
-     LUT5:I4->O            1   0.205   0.000  Score/Mmux_Decode_in45_F (N265)
-     MUXF7:I0->O           7   0.131   1.021  Score/Mmux_Decode_in45 (Score/Decode_in<3>)
-     LUT4:I0->O            1   0.203   0.579  Score/U1/Mram_Seg21 (Seg_2_OBUF)
-     OBUF:I->O                 2.571          Seg_2_OBUF (Seg<2>)
-    ----------------------------------------
-    Total                      6.884ns (3.762ns logic, 3.122ns route)
-                                       (54.6% logic, 45.4% route)
-
-=========================================================================
-
-Cross Clock Domains Report:
---------------------------
-
-Clock to Setup on destination clock Clk
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-Clk            |    9.090|         |         |         |
-Reset          |         |    8.927|         |         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock Score/U0/Count_18
------------------+---------+---------+---------+---------+
-                 | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock     |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
------------------+---------+---------+---------+---------+
-Score/U0/Count_18|    2.190|         |         |         |
------------------+---------+---------+---------+---------+
-
-=========================================================================
-
-
-Total REAL time to Xst completion: 19.00 secs
-Total CPU time to Xst completion: 18.41 secs
- 
---> 
-
-Total memory usage is 263136 kilobytes
-
-Number of errors   :    0 (   0 filtered)
-Number of warnings :   26 (   0 filtered)
-Number of infos    :   81 (   0 filtered)
-
+WARNING:Xst:1426 - The value init of the FF/Latch Back_ball/x_delta_reg_1_C_1 hinder the constant cleaning in the block Top.
+   You should achieve better results by setting this init to 1.

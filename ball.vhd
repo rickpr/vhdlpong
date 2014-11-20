@@ -8,7 +8,7 @@ port(
 		 pause : in std_logic;
 		 pedal_on, paddle2_on : in std_logic;
 		 pixel_x, pixel_y : in std_logic_vector(9 downto 0);
-		 Wall_Top, Wall_Bottom: out std_logic;
+		 p1score, p2score: out std_logic;
 		ball_on : out std_logic;
 		ball_rgb : out std_logic_vector(2 downto 0)
 	);
@@ -145,26 +145,26 @@ begin
 		x_delta_next <= x_delta_reg;
 		y_delta_next <= y_delta_reg;
 		scored <= '0';
-			Wall_Top <= '0'; 
-			Wall_Bottom <= '0';
+			p1score <= '0'; 
+			p2score <= '0';
 		-- ball reached top, make offset positive
 		if ( ball_y_t < MAX_Y_T - 1 ) then
 			y_delta_next <= BALL_V_P;
-			Wall_Top <= '1';			
 		-- reached bottom, make negative
 		elsif (ball_y_b > (MAX_Y_B - 1)) then
 			y_delta_next <= BALL_V_N;
-			     Wall_Bottom <= '1';
 		-- Hit left paddle
 		elsif(pedal_on = '1' and rd_ball_on = '1') then
 			x_delta_next <= BALL_V_P;
 		-- Hit right paddle
 		elsif(paddle2_on = '1' and rd_ball_on = '1') then
 			x_delta_next <= BALL_V_N;
-		
 		elsif(ball_x_r > (MAX_X - 8)) then
 		    scored <= '1';
-			
+			 p1score <= '1';
+		elsif(ball_x_l < MAX_X_L + 8) then
+		    scored <= '1';
+			 p2score <= '1';
 --				x_delta_next <= BALL_V_N;
 		end if;
 	end process;

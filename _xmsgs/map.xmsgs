@@ -11,6 +11,9 @@
 <msg type="info" file="LIT" num="244" delta="old" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
 </msg>
 
+<msg type="warning" file="Pack" num="2573" delta="old" >The F7 multiplexer symbol &quot;<arg fmt="%s" index="1">Koopa_V/Mmux_L_on136_SW0</arg>&quot; and its I0 input driver &quot;<arg fmt="%s" index="2">Koopa_V/Mram_rom_data&lt;70&gt;11</arg>&quot; were implemented suboptimally in the same slice component. The function generator could not be placed directly driving the F7 multiplexer. The design will exhibit suboptimal timing.
+</msg>
+
 <msg type="info" file="Pack" num="1716" delta="old" >Initializing temperature to <arg fmt="%0.3f" index="1">85.000</arg> Celsius. (default - Range: <arg fmt="%0.3f" index="2">0.000</arg> to <arg fmt="%0.3f" index="3">85.000</arg> Celsius)
 </msg>
 
