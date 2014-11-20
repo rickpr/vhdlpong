@@ -10,40 +10,40 @@ Target Device  : xc6slx16
 Target Package : csg324
 Target Speed   : -3
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Wed Nov 12 20:05:05 2014
+Mapped Date    : Wed Nov 19 19:23:01 2014
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    0
 Slice Logic Utilization:
-  Number of Slice Registers:                    59 out of  18,224    1%
-    Number used as Flip Flops:                  59
-    Number used as Latches:                      0
+  Number of Slice Registers:                   245 out of  18,224    1%
+    Number used as Flip Flops:                 244
+    Number used as Latches:                      1
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        215 out of   9,112    2%
-    Number used as logic:                      214 out of   9,112    2%
-      Number using O6 output only:             143
-      Number using O5 output only:               0
-      Number using O5 and O6:                   71
+  Number of Slice LUTs:                        634 out of   9,112    6%
+    Number used as logic:                      629 out of   9,112    6%
+      Number using O6 output only:             411
+      Number using O5 output only:             105
+      Number using O5 and O6:                  113
       Number used as ROM:                        0
     Number used as Memory:                       0 out of   2,176    0%
-    Number used exclusively as route-thrus:      1
-      Number with same-slice register load:      1
-      Number with same-slice carry load:         0
+    Number used exclusively as route-thrus:      5
+      Number with same-slice register load:      0
+      Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                    77 out of   2,278    3%
-  Nummber of MUXCYs used:                      108 out of   4,556    2%
-  Number of LUT Flip Flop pairs used:          217
-    Number with an unused Flip Flop:           159 out of     217   73%
-    Number with an unused LUT:                   2 out of     217    1%
-    Number of fully used LUT-FF pairs:          56 out of     217   25%
-    Number of unique control sets:               8
+  Number of occupied Slices:                   241 out of   2,278   10%
+  Nummber of MUXCYs used:                      224 out of   4,556    4%
+  Number of LUT Flip Flop pairs used:          653
+    Number with an unused Flip Flop:           418 out of     653   64%
+    Number with an unused LUT:                  19 out of     653    2%
+    Number of fully used LUT-FF pairs:         216 out of     653   33%
+    Number of unique control sets:              27
     Number of slice register sites lost
-      to control set restrictions:              37 out of  18,224    1%
+      to control set restrictions:             131 out of  18,224    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -52,16 +52,16 @@ Slice Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                        10 out of     232    4%
-    Number of LOCed IOBs:                        9 out of      10   90%
+  Number of bonded IOBs:                        22 out of     232    9%
+    Number of LOCed IOBs:                       21 out of      22   95%
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         0 out of      32    0%
   Number of RAMB8BWERs:                          0 out of      64    0%
   Number of BUFIO2/BUFIO2_2CLKs:                 0 out of      32    0%
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
-  Number of BUFG/BUFGMUXs:                       1 out of      16    6%
-    Number used as BUFGs:                        1
+  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
+    Number used as BUFGs:                        2
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     0 out of       4    0%
   Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
@@ -80,11 +80,11 @@ Specific Feature Utilization:
   Number of STARTUPs:                            0 out of       1    0%
   Number of SUSPEND_SYNCs:                       0 out of       1    0%
 
-Average Fanout of Non-Clock Nets:                5.02
+Average Fanout of Non-Clock Nets:                4.32
 
-Peak Memory Usage:  362 MB
-Total REAL time to MAP completion:  8 secs 
-Total CPU time to MAP completion:   8 secs 
+Peak Memory Usage:  373 MB
+Total REAL time to MAP completion:  25 secs 
+Total CPU time to MAP completion:   24 secs 
 
 Table of Contents
 -----------------
@@ -130,31 +130,17 @@ INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
    1.260 Volts)
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 10 IOs, 9 are locked
+INFO:Place:834 - Only a subset of IOs are locked. Out of 22 IOs, 21 are locked
    and 1 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-   3 block(s) removed
    2 block(s) optimized away
-   3 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
-
-The trimmed logic reported below is either:
-   1. part of a cycle
-   2. part of disabled logic
-   3. a side-effect of other trimmed logic
-
-The signal "Back_ball/Eqn_0_mand" is unused and has been removed.
- Unused block "Back_ball/Eqn_0_mand1" (ROM) removed.
-  The signal "N38" is unused and has been removed.
-   Unused block "Back_ball/rd_ball_on_SW1_cy" (MUX) removed.
-    The signal "Back_ball/rd_ball_on_SW1_lut" is unused and has been removed.
-     Unused block "Back_ball/rd_ball_on_SW1_lut" (ROM) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -171,11 +157,23 @@ Section 6 - IOB Properties
 | IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Ax<0>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Ax<1>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Ax<2>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Ax<3>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | Clk                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | Hsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | Padle<0>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | Padle<1>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | Reset                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| Seg<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<4>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| Seg<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | Vsync                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | pause                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | rgb<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

@@ -4,10 +4,11 @@ use ieee.numeric_std.all;
 
 entity ball is
 port(
-		clk, reset : in std_logic;
-		pause : in std_logic;
-		pedal_on, paddle2_on : in std_logic;
-		pixel_x, pixel_y : in std_logic_vector(9 downto 0);
+		 clk, reset : in std_logic;
+		 pause : in std_logic;
+		 pedal_on, paddle2_on : in std_logic;
+		 pixel_x, pixel_y : in std_logic_vector(9 downto 0);
+		 Wall_Top, Wall_Bottom: out std_logic;
 		ball_on : out std_logic;
 		ball_rgb : out std_logic_vector(2 downto 0)
 	);
@@ -31,16 +32,16 @@ architecture ball_arch of ball is
 	-- square ball -- ball left, right, top and bottom
 	-- all vary. Left and top driven by registers below.
 	constant BALL_SIZE: integer := 8;
-	signal ball_x_l, ball_x_r: unsigned(9 downto 0);
-	signal ball_y_t, ball_y_b: unsigned(9 downto 0);
+	signal ball_x_l, ball_x_r: unsigned(9 downto 0):=(others => '0');
+	signal ball_y_t, ball_y_b: unsigned(9 downto 0):=(others => '0');
 	
 	-- reg to track left and top boundary
-	signal ball_x_reg, ball_x_next: unsigned(9 downto 0);
-	signal ball_y_reg, ball_y_next: unsigned(9 downto 0);
+	signal ball_x_reg, ball_x_next: unsigned(9 downto 0):=(others => '0');
+	signal ball_y_reg, ball_y_next: unsigned(9 downto 0):=(others => '0');
 	
 	-- reg to track ball speed
-	signal x_delta_reg, x_delta_next : unsigned(9 downto 0);
-	signal y_delta_reg, y_delta_next : unsigned(9 downto 0);
+	signal x_delta_reg, x_delta_next : unsigned(9 downto 0):=(others => '0');
+	signal y_delta_reg, y_delta_next : unsigned(9 downto 0):=(others => '0');
 	
 	-- ball movement can be pos or neg
 	constant BALL_V_P: unsigned(9 downto 0) := to_unsigned(2,10);
@@ -50,26 +51,26 @@ architecture ball_arch of ball is
 	type rom_type is array(0 to 7) of std_logic_vector(0 to 7);
 	constant BALL_ROM: rom_type:= (
 		"00111100",
-		"01011010",
+		"01111110",
 		"11111111",
 		"11111111",
-		"10111101",
-		"11011101",
-		"01100010",
+		"11111111",
+		"11111111",
+		"01111110",
 		"00111100"
 	);
 	
-	signal rom_addr, rom_col: unsigned(2 downto 0);
-	signal rom_data: std_logic_vector(7 downto 0);
-	signal rom_bit: std_logic;
+	signal rom_addr, rom_col: unsigned(2 downto 0):= "000";
+	signal rom_data: std_logic_vector(7 downto 0):=(others => '0');
+	signal rom_bit: std_logic:='0';
 	
 	-- object output signals -- new signal to indicate if
 	-- scan coord is within ball
-	signal sq_ball_on, rd_ball_on : std_logic;
+	signal sq_ball_on, rd_ball_on : std_logic:='0';
 	-- ====================================================
 
 
-	signal scored : std_logic;
+	signal scored : std_logic:='0';
 begin
 
 
@@ -134,7 +135,7 @@ begin
 	ball_y_next <= ball_y_reg + y_delta_reg when refr_tick = '1' else 
 						ball_y_reg;
 						
-	
+	--player_scored <= scored;
 						
 	-- Set the value of the next ball position according to
 	-- the boundaries.
@@ -144,13 +145,16 @@ begin
 		x_delta_next <= x_delta_reg;
 		y_delta_next <= y_delta_reg;
 		scored <= '0';
-			
+			Wall_Top <= '0'; 
+			Wall_Bottom <= '0';
 		-- ball reached top, make offset positive
 		if ( ball_y_t < MAX_Y_T - 1 ) then
 			y_delta_next <= BALL_V_P;
+			Wall_Top <= '1';			
 		-- reached bottom, make negative
 		elsif (ball_y_b > (MAX_Y_B - 1)) then
 			y_delta_next <= BALL_V_N;
+			     Wall_Bottom <= '1';
 		-- Hit left paddle
 		elsif(pedal_on = '1' and rd_ball_on = '1') then
 			x_delta_next <= BALL_V_P;
@@ -160,7 +164,8 @@ begin
 		
 		elsif(ball_x_r > (MAX_X - 8)) then
 		    scored <= '1';
-
+			
+--				x_delta_next <= BALL_V_N;
 		end if;
 	end process;
 	

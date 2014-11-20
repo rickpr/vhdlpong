@@ -1,16 +1,28 @@
 //! **************************************************************************
-// Written by: Map O.87xd on Wed Nov 12 20:05:13 2014
+// Written by: Map O.87xd on Wed Nov 19 19:23:26 2014
 //! **************************************************************************
 
 SCHEMATIC START;
+COMP "Clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "Ax<0>" LOCATE = SITE "N16" LEVEL 1;
+COMP "Ax<1>" LOCATE = SITE "N15" LEVEL 1;
+COMP "Ax<2>" LOCATE = SITE "P18" LEVEL 1;
+COMP "Ax<3>" LOCATE = SITE "P17" LEVEL 1;
+COMP "Padle<0>" LOCATE = SITE "C9" LEVEL 1;
+COMP "Padle<1>" LOCATE = SITE "A8" LEVEL 1;
+COMP "Hsync" LOCATE = SITE "N6" LEVEL 1;
+COMP "Reset" LOCATE = SITE "T10" LEVEL 1;
+COMP "Vsync" LOCATE = SITE "P7" LEVEL 1;
+COMP "Seg<0>" LOCATE = SITE "T17" LEVEL 1;
+COMP "Seg<1>" LOCATE = SITE "T18" LEVEL 1;
+COMP "Seg<2>" LOCATE = SITE "U17" LEVEL 1;
+COMP "Seg<3>" LOCATE = SITE "U18" LEVEL 1;
+COMP "Seg<4>" LOCATE = SITE "M14" LEVEL 1;
+COMP "Seg<5>" LOCATE = SITE "N14" LEVEL 1;
+COMP "Seg<6>" LOCATE = SITE "L14" LEVEL 1;
+COMP "Seg<7>" LOCATE = SITE "M13" LEVEL 1;
 COMP "rgb<0>" LOCATE = SITE "T7" LEVEL 1;
 COMP "rgb<1>" LOCATE = SITE "V6" LEVEL 1;
 COMP "rgb<2>" LOCATE = SITE "N7" LEVEL 1;
-COMP "Hsync" LOCATE = SITE "N6" LEVEL 1;
-COMP "Padle<0>" LOCATE = SITE "C9" LEVEL 1;
-COMP "Padle<1>" LOCATE = SITE "A8" LEVEL 1;
-COMP "Vsync" LOCATE = SITE "P7" LEVEL 1;
-COMP "Reset" LOCATE = SITE "T10" LEVEL 1;
-COMP "Clk" LOCATE = SITE "V10" LEVEL 1;
 SCHEMATIC END;
 
