@@ -61,3 +61,5 @@ NET "rgb<0>"    LOC = "T7";
 NET "hsync"		LOC = "N6";  
 NET "vsync"    LOC = "P7"; 
 
+NET "KeyboardData" LOC = "J13" | PULLUP;
+NET "KeyboardClock" LOC = "L12" | PULLUP;

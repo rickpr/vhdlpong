@@ -32,7 +32,9 @@ use ieee.numeric_std.all;
 entity Top is
     Port ( Clk,Reset, pause : in  STD_LOGIC;
 	        Padle: in std_logic_vector (1 downto 0);
-			   Hsync, Vsync : out  STD_LOGIC;
+			  Hsync, Vsync : out  STD_LOGIC;
+			  KeyBoardClock : in std_logic;
+		     KeyBoardData : in std_logic;
            Ax : out  STD_LOGIC_VECTOR (3 downto 0);
            Seg : out  STD_LOGIC_VECTOR (7 downto 0);
 			  rgb : out std_logic_vector(2 downto 0));
@@ -51,12 +53,21 @@ end component;
 component paddle is
 port(
 		clk, reset : in std_logic;
-		btn : in std_logic_vector(1 downto 0);
+		--btn : in std_logic_vector(1 downto 0);
 		pause : in std_logic;
 		location : in std_logic_vector(9 downto 0);
 		paddle_on : out std_logic;
 		pixel_x, pixel_y : in std_logic_vector(9 downto 0);
 		paddle_rgb : out std_logic_vector(2 downto 0)
+	);
+end component;
+
+component KeyboardController is
+    Port ( Clock : in STD_LOGIC;
+	        KeyboardClock : in  STD_LOGIC;
+           KeyboardData : in  STD_LOGIC;
+           LeftPaddleDirection : buffer  integer;
+           RightPaddleDirection : buffer  integer
 	);
 end component;
 
@@ -108,6 +119,10 @@ signal RGB_Next, rgb_reg, Background_RGB_X, Background_RGB_Y, Background_RGB,Let
 signal X, Y :  std_logic_vector(9 downto 0):="0000000000";
 signal video, pixel_tick, Paddle_on, pedal_on, Wall_on, Ball_on, Letter_on, Koopa_on, Wall_Top, Wall_Bottom : std_logic:='0';
 
+signal btn : std_logic_vector(1 downto 0);
+signal LeftPaddleDirection : integer;
+signal RightPaddleDirection : integer;
+btn <= std_logic_vector(to_unsigned(LeftPaddleDirection,2));
 -------------------------------------------------------------
 -------------------------------------------------------------
 begin
@@ -121,6 +136,15 @@ Background: Walls port map (X, Y, Video, Wall_on, Wall_RGB);
 Back_ball: ball port map (clk, reset, pause, pedal_on, Paddle_on, X, Y,Wall_Top, Wall_Bottom, Ball_on, Ball_RGB);
 Letter_V: Letter port map (X,Y, Letter_on,Letter_RGB, Video, Clk); 
 Koopa_V: Koopa port map (X,Y, Koopa_on,Koopa_RGB, Video, Clk);
+
+keyboard : KeyboardController
+	port map (
+	Clock => clk,
+	KeyboardClock => KeyboardClock,
+	KeyboardData => KeyboardData,
+	LeftPaddleDirection => LeftPaddleDirection,
+	RightPaddleDirection => RightPaddleDirection
+	);
 Score: Seven_Segment_Disp port map ( Clk, Reset, AX,Seg,Wall_Top, Wall_Bottom);
 --Led (0) <= Wall_Top;
 --Led (1) <= Wall_Bottom;

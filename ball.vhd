@@ -162,7 +162,7 @@ begin
 		elsif(ball_x_r > (MAX_X - 8)) then
 		    scored <= '1';
 			 p1score <= '1';
-		elsif(ball_x_l < MAX_X_L + 8) then
+		elsif(ball_x_l <  MAX_X_L) then
 		    scored <= '1';
 			 p2score <= '1';
 --				x_delta_next <= BALL_V_N;
