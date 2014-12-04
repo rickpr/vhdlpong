@@ -53,7 +53,7 @@ end component;
 component paddle is
 port(
 		clk, reset : in std_logic;
-		--btn : in std_logic_vector(1 downto 0);
+		btn : in std_logic_vector(1 downto 0);
 		pause : in std_logic;
 		location : in std_logic_vector(9 downto 0);
 		paddle_on : out std_logic;
@@ -122,6 +122,7 @@ signal video, pixel_tick, Paddle_on, pedal_on, Wall_on, Ball_on, Letter_on, Koop
 signal btn : std_logic_vector(1 downto 0);
 signal LeftPaddleDirection : integer;
 signal RightPaddleDirection : integer;
+signal btn0, btn1 : std_logic_vector(1 downto 0);
 
 -------------------------------------------------------------
 -------------------------------------------------------------
@@ -131,7 +132,7 @@ btn <= std_logic_vector(to_unsigned(LeftPaddleDirection,2));
 
 VGA: vga_sync port map (Clk, Reset, Hsync, Vsync,Video, pixel_tick, X, Y);
 Peddle: paddle port map (Clk, Reset,Padle ,Pause, "1001011000", Paddle_on, X, Y, Paddle_RGB); --- peddle location is 600
-Pedal: paddle port map (Clk, Reset,Padle ,Pause, "0000101000", pedal_on, X, Y, Paddle_RGB); --- pedal location is 40
+Pedal: paddle port map (Clk, Reset,btn ,Pause, "0000101000", pedal_on, X, Y, Paddle_RGB); --- pedal location is 40
 Background: Walls port map (X, Y, Video, Wall_on, Wall_RGB);
 Back_ball: ball port map (clk, reset, pause, pedal_on, Paddle_on, X, Y,Wall_Top, Wall_Bottom, Ball_on, Ball_RGB);
 Letter_V: Letter port map (X,Y, Letter_on,Letter_RGB, Video, Clk); 
